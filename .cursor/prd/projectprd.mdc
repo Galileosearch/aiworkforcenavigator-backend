@@ -1,0 +1,89 @@
+---
+description: 
+globs: 
+---
+# AI Workforce Navigator - Product Requirements Document
+
+# AI Workforce Navigator - Product Requirements Document
+
+## Product Overview
+AI-driven SaaS platform integrated with Galileo Search for HR managers to plan and execute AI workforce transformations.
+
+## Target Users
+- HR Managers
+- Recruitment Consultants
+- Business Development Teams
+- Department Heads
+
+## Core Features & Requirements
+
+### 1. Assessment Wizard
+- Company profile analysis
+- Team assessment
+- AI readiness evaluation
+- Step-by-step guided flow
+- Progress saving capability
+
+### 2. Use Case Generator
+- Industry-specific AI solutions
+- ROI calculations
+- Implementation complexity scoring
+- Competitor examples
+- Cost-benefit analysis
+
+### 3. Job Description Generator
+- AI role templates
+- Customization options
+- Downloadable formats
+- Integration with recruitment workflow
+- Skill requirement mapping
+
+### 4. Implementation Planning
+- Timeline generation
+- Resource allocation
+- Cost projections
+- Risk assessment
+- Training recommendations
+
+## Technical Requirements
+
+### Frontend
+- Next.js 14 App Router
+- TypeScript
+- ShadCN@latest components
+- Dark mode by default
+- Responsive design
+
+### Backend
+- Supabase integration
+- Authentication system
+- Data persistence
+- API security
+- Performance optimization
+
+### State Management
+- Zustand stores
+- Type-safe implementations
+- Clear data flow
+- Persistent storage where needed
+
+## Success Metrics
+- User completion rate
+- Assessment accuracy
+- Implementation success
+- Lead generation
+- Client engagement
+
+## Phase 1 Deliverables
+1. Assessment wizard functionality
+2. Basic use case generation
+3. JD generator integration
+4. ROI calculator
+5. Implementation planning tools
+
+## Future Enhancements
+- Advanced analytics
+- Integration capabilities
+- Enhanced reporting
+- AI model improvements
+- Expanded use cases

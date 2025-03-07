@@ -1,0 +1,101 @@
+---
+description: Testing Requirements
+globs: 
+---
+# Testing Requirements
+
+## **🔹 Core Testing Principles**
+- **All components & features must be tested** before deployment.
+- **Unit tests for core logic** → Ensure all business logic is correctly implemented.
+- **Integration tests for API calls** → Validate backend communication.
+- **End-to-end (E2E) tests** → Simulate real-world usage of the application.
+- **AI CV Generator and AI JD Generator must be validated for quality outputs.**
+  - Ensure AI-generated CVs & JDs match user inputs and industry standards.
+  - Validate AI skill gap analysis is accurate when comparing CVs to job descriptions.
+  - Ensure AI-generated CVs **do not fabricate skills**.
+  - Verify AI Career Transition tool **suggests realistic AI career shifts** based on data.
+  - Ensure **salary predictions are data-driven & compare actual AI job trends**.
+
+- **Python API endpoints (FastAPI) must be tested**:
+  - `/api/cv-generation/` → Validate AI CV generation & document parsing.
+  - `/api/job-spec-matching/` → Ensure skill matching logic works correctly.
+  - `/api/training-recommendations/` → Confirm AI-driven course recommendations are relevant.
+  - `/api/salary-comparison/` → Ensure salary estimates are aligned with Glassdoor API.
+
+- **Gumloop Workflows must be tested for automation reliability:**
+  - Validate automated **job posting triggers & syndication across platforms**.
+  - Ensure **real-time candidate screening AI chatbots respond correctly**.
+  - Verify **automated lead generation & recruiter outreach workflows**.
+  - Ensure **Gumloop-based notifications for job seekers & recruiters are triggered correctly**.
+
+---
+
+## **🔹 Testing Stack**
+- **Unit Testing** → Use Jest & React Testing Library.
+- **Integration Testing** → Use Jest for API interactions.
+- **E2E Testing** → Use Cypress for simulating real user workflows.
+- **Python API Testing** → Use `pytest` for validating FastAPI endpoints.
+- **Gumloop Workflow Testing** → Verify automation triggers, task execution & error handling.
+- **Salary Benchmarking Validation** → Cross-check AI career transition salary predictions with real Glassdoor data.
+
+---
+
+## **🔹 Test Coverage Goals**
+- **Critical components must have 80%+ coverage**.
+- **All API endpoints must be tested** for failure & success cases.
+- **Edge cases must be considered** → Handle unexpected inputs & edge scenarios.
+- **AI Model Output Validation**:
+  - Ensure GPT-4.5-generated job descriptions are contextually accurate.
+  - Validate AI CV Generator outputs to be **ATS-friendly** & **factually correct**.
+  - Verify AI skill matching aligns with actual job requirements.
+  - Ensure **Gumloop automation does not create incorrect or duplicate records**.
+  - Test **job posting automation to verify successful cross-platform distribution**.
+
+---
+
+## **🔹 Folder Structure for Tests**
+- **Unit Tests (`/tests/unit/`)** → Tests core business logic.
+  - `jdGenerator.test.ts` → JD Generator core logic.
+  - `aiCvGenerator.test.ts` → AI CV Generator core logic.
+  - `jobBoard.test.ts` → Job board functionality.
+  - `gumloopWorkflow.test.ts` → Gumloop automation logic.
+  - `salaryEstimator.test.ts` → AI salary projection testing.
+
+- **Integration Tests (`/tests/integration/`)** → API communication tests.
+  - `apiJobDescriptions.test.ts` → JD Generator API testing.
+  - `apiCommunityPosting.test.ts` → Job posting API testing.
+  - `apiCvGeneration.test.py` → AI CV Generator Python API testing.
+  - `apiJobSpecMatching.test.py` → AI job spec matching testing.
+  - `apiTrainingRecommendations.test.py` → AI training recommendations testing.
+  - `apiSalaryComparison.test.py` → AI salary projection testing.
+  - `gumloopApi.test.ts` → Gumloop API workflow validation.
+
+- **E2E Tests (`/tests/e2e/`)** → Full workflow simulations.
+  - `userFlows.cy.ts` → User login, profile management.
+  - `jobPostingFlow.cy.ts` → JD posting & application flow.
+  - `aiCvGenerationFlow.cy.ts` → AI CV upload & processing flow.
+  - `aiCareerTransitionFlow.cy.ts` → AI Career Transition tool test cases.
+  - `gumloopWorkflowFlow.cy.ts` → Automated job posting, lead generation & screening.
+
+---
+
+## **🔹 Best Practices**
+- **Write descriptive test cases** → Ensure clarity & maintainability.
+- **Mock API calls in unit tests** → Avoid real API calls when testing components.
+- **Automate test execution** → Run tests in CI/CD pipelines.
+- **Prioritize user-critical features in E2E tests** → Ensure a smooth UX.
+- **Validate AI-generated content for accuracy** → AI outputs should not introduce bias, misinformation, or irrelevant content.
+- **Ensure Gumloop automations complete without errors** → Validate API responses & triggers.
+- **Verify AI-generated CVs remain structured, ATS-compatible & professional.**
+- **Ensure salary predictions remain realistic and data-driven.**
+- **Confirm AI Career Transition tool **suggests AI roles based on actual hiring trends**.
+
+---
+
+## **🔹 Future Enhancements**
+- Implement **visual regression testing** for UI consistency.
+- Use **AI-powered testing tools** for detecting unexpected behaviors.
+- Introduce **user-feedback validation loops** for AI-generated outputs.
+- Explore **real-time AI model monitoring** to detect anomalies in generated content.
+- Set up **automated Gumloop workflow monitoring** to detect failed automations.
+- Implement **A/B testing for AI-generated CV structures** to optimize recruiter response rates.

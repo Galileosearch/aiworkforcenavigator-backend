@@ -1,0 +1,75 @@
+---
+description: API Rules
+globs: 
+---
+# API Integration Rules
+
+## **🔹 Core API Infrastructure**
+- **Supabase** is used for all database storage (JDs, Jobs, AI CVs, Insights).
+- **OpenAI GPT-4.5 API** is used for AI-driven JD & CV generation.
+- **Gumloop AI Workflow Automation** is used for:
+  - AI CV processing & job matching workflows.
+  - AI role transition automation for candidates shifting to AI careers.
+  - Job posting automation (Slack, Discord, job boards).
+  - AI chatbot for candidate pre-screening & recruiter lead generation.
+- **Glassdoor API / LinkedIn Scraper** (To be replaced with GPT-4.5-based retrieval).
+- **Slack & Discord API** for AI job posting automation.
+- **Pinecone** for AI skill-matching & talent analytics.
+- **Python FastAPI backend** handles:
+  - AI CV processing (`/api/cv-generation/`).
+  - AI job spec matching (`/api/job-spec-matching/`).
+  - AI-powered training recommendations (`/api/training-recommendations/`).
+  - AI-generated salary comparison (`/api/salary-comparison/`).
+
+---
+
+## **🔹 Updated API Endpoints**
+- `/api/cv-generation/job-matching/` → Compares CV to job description & suggests edits.
+- `/api/cv-generation/ai-career-transition/` → Analyzes CV & suggests AI-related career paths.
+- `/api/cv-generation/training-recommendations/` → Suggests upskilling based on missing skills.
+- `/api/cv-generation/salary-comparison/` → Estimates current vs. AI job salary projections.
+- `/api/jd-generator/role-selection/` → Suggests AI roles based on industry.
+- `/api/jd-generator/tech-stack/` → Matches job role to AI tools (AWS, Azure, OpenAI).
+- `/api/jd-generator/job-objective/` → Defines hiring needs (Automation, AI Chatbot, AI Research).
+- `/api/jd-generator/market-benchmarking/` → Returns salary data & AI hiring trends.
+- `/api/job-posting/` → Automates job distribution via Gumloop workflows.
+- `/api/lead-generation/` → Runs AI-powered recruiter outreach.
+- `/api/company-data/` → GPT-4.5-based company data retrieval.
+
+---
+
+## **🔹 Workflow Strategy**
+- **AI CV Generator Mode 1: Job-Specific CV Optimization**
+  - User uploads CV & pastes job description.
+  - AI compares CV to job spec & highlights missing but relevant skills.
+  - AI refines CV wording for clarity but does **not fabricate skills**.
+  - Candidate reviews & accepts AI suggestions before generating final CV.
+  - CV is formatted & exported in PDF/DOCX.
+
+- **AI CV Generator Mode 2: AI Career Transition**
+  - User uploads CV for AI career assessment.
+  - AI suggests new AI-related jobs & required skills.
+  - AI predicts salary comparison & generates a transition roadmap.
+  - User can enroll in suggested AI courses for upskilling.
+
+- **AI JD Generator Workflow**
+  - HR Managers input AI hiring needs.
+  - AI system suggests relevant job roles & skills.
+  - JD Generator customizes & benchmarks job descriptions.
+  - Gumloop automates job posting & candidate engagement.
+
+- **Gumloop Workflow Automations**
+  - **Automates job postings** across Slack, Discord, & job boards.
+  - **Auto-screens candidates** with AI chatbot pre-screening.
+  - **Handles recruiter outreach** via AI-generated email sequences.
+  - **Tracks job performance analytics** for employers.
+
+---
+
+## **🔹 API Performance & Security Best Practices**
+- **Error handling & caching must be implemented** to ensure high performance.
+- **All API responses must be type-safe & properly validated** before storage.
+- **Authentication & API security** must follow industry best practices (OAuth, API keys).
+- **Rate limiting for external APIs (OpenAI, Gumloop, Glassdoor)** to control usage & prevent overages.
+- **Ensure AI-generated CVs follow ATS-compliant structures for recruiters.**
+- **Verify all AI-generated outputs before they are stored or displayed.**

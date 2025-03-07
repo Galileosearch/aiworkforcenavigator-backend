@@ -1,0 +1,73 @@
+---
+description: state manangement 
+globs: 
+---
+# State Management Rules
+
+## **🔹 Core Principles**
+- **Use Zustand for state management** (No Redux/Context unless necessary).
+- **All state should be centralized** → Ensure predictable data flow.
+- **State should be feature-scoped** → Avoid excessive global state.
+- **Ensure type safety** → All state must be strictly typed using TypeScript.
+- **AI-heavy computations (CV parsing, skill analysis, job automation) should not rely on the frontend state.**
+  - AI-driven processes should be handled via Python backend & Gumloop workflows with **stateless API calls**.
+- **Gumloop workflows should trigger API calls, not update client-side state directly.**
+  - Zustand should only store **temporary workflow session data** (e.g., CV upload progress, job posting status, Gumloop automation tracking).
+
+---
+
+## **🔹 State Structure Guidelines**
+- **Global State (`/state/global.ts`)**  
+  - Stores application-wide settings (e.g., user authentication, theme preferences).
+- **Feature-Specific State (`/state/features/`)**  
+  - Each feature (JD Generator, AI CV Generator, Job Board, Gumloop Automations) has its own store file.
+  - Example:
+    ```
+    /state/features/
+    ├── jdGeneratorStore.ts  # Manages JD Generator state
+    ├── aiCvGeneratorStore.ts  # AI CV Generator state
+    ├── aiCareerTransitionStore.ts  # AI Career Transition state (NEW)
+    ├── jobBoardStore.ts  # Manages job board data
+    ├── hiringTrendsStore.ts  # AI Hiring Insights state
+    ├── gumloopStore.ts  # Gumloop automation status tracking
+    ```
+- **Python & Gumloop API processing should use temporary API-driven state**  
+  - AI CV parsing & job spec matching should **not persist in the frontend store**.
+  - Zustand should **only store necessary session data** (e.g., uploaded CV, job ad URL, Gumloop automation task status).
+- **Gumloop automations should be handled asynchronously** via API calls rather than being stored directly in client state.
+
+---
+
+## **🔹 AI CV Generator State Management**
+- **Mode 1: AI CV Optimization (Job Applications)**
+  - Stores **uploaded CV & job description (session-based).**
+  - Temporarily holds **AI-suggested edits** before candidate approval.
+  - Keeps **finalized CV version available for export/download.**
+  - **Does NOT store fabricated or inaccurate skills** (ensures AI-generated CVs are truthful).
+
+- **Mode 2: AI Career Transition Tool**
+  - Stores **AI job recommendations & salary projections.**
+  - Tracks **suggested training pathways for career shifts.**
+  - Gumloop **automates follow-ups & career alerts.**
+
+---
+
+## **🔹 Best Practices**
+- **State should be normalized** → Avoid deeply nested state structures.
+- **Avoid unnecessary re-renders** → Use shallow comparisons in selectors.
+- **Persist state where necessary** → Use Zustand middleware for persistence when required.
+- **Reset state on logout** → Ensure user sessions are cleared properly.
+- **Ensure AI CV Generator does not store sensitive user data in the client state.**  
+  - AI-generated CVs should be processed server-side & fetched via API calls.
+- **Use event-based triggers for Gumloop workflows instead of storing automation results in the client state.**
+  - Example: Job posting automation should trigger **API events**, not update Zustand state.
+- **AI-generated career transition insights should not be permanently stored in client-side state** for security reasons.
+
+---
+
+## **🔹 Future Enhancements**
+- Consider integrating **React Query** for server-state synchronization.
+- Implement **PWA offline support** for better user experience.
+- Optimize **API polling vs. WebSockets** for real-time AI CV generation feedback.
+- Improve **Gumloop-to-Zustand state mapping** to track workflow completion status.
+- Implement **event-driven state management** for **Gumloop automation triggers** to ensure smooth workflow execution.

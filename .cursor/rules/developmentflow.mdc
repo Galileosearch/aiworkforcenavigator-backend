@@ -1,0 +1,60 @@
+---
+description: Development Flow
+globs: 
+---
+# Development Flow
+
+## **🔹 Core Development Principles**
+- **Build Features Incrementally**
+  - Each feature should be developed and tested independently.
+  - Components should be modular and reusable.
+- **Test Components in Isolation**
+  - Unit tests should cover core logic and UI components.
+  - API endpoints should be tested separately before full integration.
+- **Follow Agile Sprint Structure**
+  - **Phase 1:** AI JD Generator & AI CV Generator (MVP Features)
+  - **Phase 2:** AI Hiring Insights, AI Career Transition, & Workflow Automation
+  - **Phase 3:** Monetization & Growth
+- **Document All Major Changes**
+  - Every major feature addition should have proper documentation.
+  - PRD should be updated when core functionalities change.
+- **Maintain Version Control Standards**
+  - Use `git commit` messages that clearly describe changes.
+  - Regularly push updates to GitHub (`git push origin main`).
+
+---
+
+## **🔹 Updated Development Phases**
+### **Phase 1: AI JD Generator & AI CV Generator (MVP Features)**
+✅ **Develop AI JD Generator UI** (Dynamic Wizard & AI-driven prompts).  
+✅ **Develop AI CV Generator UI** (Job-Specific Optimization Mode).  
+✅ **Ensure AI skill matching only refines existing skills (no fabrication).**  
+✅ **Enable live AI job transition assessments for AI-displaced workers.**  
+✅ **Implement Gumloop for job posting automation & candidate screening.**  
+✅ **Integrate OpenAI GPT-4.5 API for JD & CV generation.**  
+✅ **Add AI Hiring Heatmap & Salary Benchmarking (Glassdoor, LinkedIn Scraper).**  
+
+---
+
+### **Phase 2: AI Role Matching, Hiring Insights & Career Transition**
+🔜 **Develop AI-powered job spec matching & skill analysis.**  
+🔜 **Deploy AI-powered role transition tools for displaced workers.**  
+🔜 **Integrate AI-generated salary benchmarking for career shifts.**  
+🔜 **Use Gumloop for automated job application tracking & recruiter notifications.**  
+🔜 **Implement AI role transition tool for candidates moving into AI jobs.**  
+🔜 **Develop two AI CV Generator modes:**
+  - **"Optimize CV for Job Application"** (Job-Specific CV Tailoring)  
+  - **"Find New AI Role Based on Your Experience"** (Career Transition Mode)  
+🔜 **Use Gumloop to automate workflow triggers between JD Generator, Job Board, and AI Insights.**  
+
+---
+
+### **Phase 3: Monetization & Growth**
+🔜 **AI Talent Database (Freemium Model for hiring managers & HR).**  
+🔜 **Premium AI Hiring Services & Exclusive Talent Pools.**  
+🔜 **Integrate Coursera/Udemy APIs for AI training suggestions.**  
+🔜 **Launch premium subscriptions for AI-driven hiring insights.**  
+🔜 **Enable AI-powered automated recruiter outreach via Gumloop workflows.**  
+🔜 **Monetize job posting automation (Paid premium syndication via Gumloop).**  
+🔜 **Launch paid AI CV Generator optimization services for job seekers.**  
+🔜 **Offer premium AI career transition services for professionals shifting into AI roles.**  

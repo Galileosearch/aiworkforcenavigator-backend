@@ -1,0 +1,144 @@
+---
+description: 
+globs: 
+---
+# 📌 AI Workforce Navigator PRD v4.1
+
+## 📍 Project Name:
+**Galileo AI Workforce Navigator**  
+
+## 📍 Objective:
+Develop a **high-traffic AI job description & AI CV generator, AI job board, and AI hiring community** to position **Galileo Search as the leading AI recruitment platform**.  
+Now integrated with **Gumloop AI automation** to streamline AI hiring, AI CV generation, job posting, and career transition workflows.
+
+---
+
+## 🔹 Core Features & Scope
+
+### **1️⃣ AI Job Description Generator (🚀 Equal Flagship Feature to AI CV Generator)**
+✅ **Smart JD Wizard**
+   - **Guided Prompts for HR & Hiring Managers**:
+     - **Industry Selection** → Tech, Finance, Healthcare, etc.
+     - **Common AI Roles** → AI Engineer, ML Specialist, Prompt Engineer, AI Product Manager.
+     - **Common AI Projects** → AI Automation, AI Chatbots, AI for Business Intelligence.
+     - **AI Job Objectives** → Internal Automation, Customer-Facing AI, AI Data Analysis.
+     - **Current Tech Stack** → AWS, Azure, OpenAI, Hugging Face, LangChain.
+     - **New AI Tools Available** → Suggests industry-standard AI tools.
+     - **Company Size & AI Readiness** → Determines AI hiring approach.
+     - **Job Description Goal** → Leadership vs. Hands-on AI Engineering.
+
+✅ **AI-Powered JD Writing & Customization**
+   - **Real-time AI skill & tool matching** (using OpenAI API & live market trends).
+   - **Role-Specific JD Templates** for AI-driven roles (Engineering, AI Ops, Automation).
+   - **Adaptive JD Structure** → Generates different JDs for AI Research vs. AI Product teams.
+   - **Enterprise vs. Startup Mode** (suggests tools based on company size).
+
+✅ **JD Strength Score & Market Benchmarking**
+   - **Live JD preview & comparison** vs. industry best practices.
+   - **AI Role Salary Benchmarking** (US, EU, AUS, remote trends) via Glassdoor API.
+   - **AI Skills Heatmap** (which AI skills are in demand & job market trends).
+   - **Candidate Availability Index** (AI talent supply-demand insights from LinkedIn & Gumloop).
+
+---
+
+### **2️⃣ AI CV Generator & Career Transition Tool (🚀 Equal Flagship Feature to JD Generator)**
+✅ **Mode 1: AI CV Optimization for Job Applications**
+   - **Users upload their CV & input a job description (from LinkedIn, Seek, Jobserve, internal JD, etc.).**
+   - **AI compares CV to job requirements and identifies missing but relevant skills.**
+   - **AI refines CV wording for clarity but does NOT fabricate skills.**
+   - **Candidates can review suggestions & add missing skills manually before generating the final CV.**
+   - **Ensures CV is tailored but remains fully truthful.**
+   - **Allows PDF/DOCX export of AI-optimized CV.**
+   - **Gumloop automates job tracking & sends application reminders.**
+   - **Ensures recruiter-friendly ATS formatting & AI job relevance scoring.**
+
+✅ **Mode 2: AI Career Transition Tool for AI-Displaced Workers**
+   - **Users upload their CV to assess their readiness for AI jobs.**
+   - **AI suggests AI-related career paths they qualify for today.**
+   - **Provides training recommendations for roles they could transition into with upskilling.**
+   - **Estimates current salary & projected salary in AI-based careers.**
+   - **Generates AI Career Roadmap with milestone tracking.**
+   - **Integrates with Gumloop for career transition automation (email alerts, job application nudges).**
+   - **Suggests most valuable AI certifications based on career shift potential.**
+
+✅ **AI Training Recommendations**
+   - **Based on missing skills, AI recommends courses (Udemy, Coursera APIs).**
+   - **Helps candidates improve their AI/tech skills.**
+
+✅ **AI-Driven Company Data Retrieval**
+   - **Replaces LinkedIn Scraper for AI-generated insights.**
+   - **Uses GPT-4.5 to extract company info from public data sources.**
+
+---
+
+### **3️⃣ AI Hiring Community & Job Board**
+✅ **AI Job Board & Syndication**
+   - **Galileo AI Job Board** (Free listings to drive traffic).
+   - **Cross-posting API** (Slack, Discord, Skool AI groups).
+   - **Gumloop automates job post distribution & tracking**.
+   - **Tracking analytics** (where jobs get most engagement).
+
+✅ **AI Hiring Insights Dashboard**
+   - **Live trends on AI hiring** (fastest-growing jobs, salaries, demand).
+   - **Candidate supply vs. demand data** (where AI talent is most available).
+   - **Top AI tools in hiring** (LangChain, Mistral, etc.).
+
+✅ **AI Candidate Profile Hub (Future Phase)**
+   - AI professionals create **free profiles** showcasing **GitHub, Kaggle, Hugging Face**.
+   - Hiring managers **search for talent**, pay for **premium access**.
+
+---
+
+## 🔹 Tech Stack & Architecture
+
+### 🚀 Frontend
+✅ **Next.js 14 (App Router)**  
+✅ **shadcn/ui + Tailwind CSS (UI components)**  
+✅ **Zustand (state management, no Redux/Context)**  
+✅ **Vercel for Deployment**  
+
+### ⚙️ Backend
+✅ **Supabase (Database & Auth)**
+✅ **OpenAI GPT-4.5 API (JD & CV generation)**
+✅ **Python FastAPI (Handles AI CV parsing, JD matching, AI-driven skill recommendations)**
+✅ **Gumloop AI Workflow Automation (Handles job posting, lead generation, candidate screening).**
+✅ **Slack & Discord API (Job posting automation)**
+✅ **Pinecone (Optional: AI skill matching & JD optimization)**
+
+---
+
+## 🔹 Development Phases
+
+### ✅ **Phase 1: JD Generator & AI CV Generator (Equal MVP Features)**
+- [ ] **Build AI JD Generator UI**  
+- [ ] **Develop JD Benchmarking & Scoring System**  
+- [ ] **Integrate OpenAI for JD Text Generation**  
+- [ ] **Enable Free JD Posting to Galileo AI Job Board**  
+- [ ] **Develop AI CV Generator UI**  
+- [ ] **Ensure AI CV Generator handles job-specific skill matching accurately.**  
+- [ ] **Integrate Gumloop for automated job syndication & tracking.**  
+
+### ✅ **Phase 2: AI Role Matching & Hiring Insights**
+- [ ] **Develop AI-powered job spec matching & skill analysis.**  
+- [ ] **Deploy AI-powered role transition tools for displaced workers.**  
+- [ ] **Implement AI-generated salary benchmarking for career shifts.**  
+- [ ] **Use Gumloop for automated job application tracking & recruiter notifications.**  
+
+### ✅ **Phase 3: Monetization & Growth**
+- [ ] **Freemium AI Talent Database (Candidate Profiles)**  
+- [ ] **Premium AI Hiring Services & Exclusive Talent Pools.**  
+- [ ] **Partnership Integrations (AI Training Courses, Employer Branding).**  
+- [ ] **Monetize job posting automation (Paid premium syndication via Gumloop).**  
+- [ ] **Launch AI-powered recruiter outreach via Gumloop workflows.**  
+
+---
+
+## 🔹 Key Differentiators
+🔥 **First free AI job description generator that’s dynamically updated with AI trends.**  
+🔥 **Seamless job posting to AI communities where real talent is looking.**  
+🔥 **AI hiring insights that continuously attract hiring managers & companies.**  
+🔥 **AI-driven CV generator that tailors resumes to specific job descriptions.**  
+🔥 **High-engagement AI hiring community (job seekers & hiring managers interact directly).**  
+🔥 **Gumloop workflow automation makes hiring, job posting & AI job transitions seamless.**  
+
+---

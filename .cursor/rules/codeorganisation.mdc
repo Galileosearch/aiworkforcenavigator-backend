@@ -1,0 +1,43 @@
+---
+description: Code Orgnisation
+globs: 
+---
+# Code Organisation Rules
+
+## **🔹 Core Code Structure**
+- **No files should be placed outside the defined structure.**
+- **Component-first architecture** → All UI elements must be modular & reusable.
+- **Follow a feature-based organization:**
+  - `src/components/features/` contains modular features (JD Generator, AI CV Generator, Community Posting, etc.).
+  - `src/app/api/` handles API calls.
+  - `src/lib/` stores shared utilities (Supabase, GPT integrations, Gumloop API handlers).
+  - **All navigation headers must be unified across sections.**
+  - **SaaS-level UI with micro-interactions & hover effects.**
+  - **Gumloop workflows must be modular and event-driven.**
+
+---
+
+## **🔹 Final Folder Structure**
+
+ai-workforce-navigator-v2/ ├── .cursor/ │ ├── rules/ │ │ ├── PRD.mdc # PRD for Cursor AI reference │ │ ├── architecture-rules.mdc │ │ ├── developmentflow.mdc │ │ ├── apiintegration.mdc │ │ ├── codeorganisation.mdc │ │ ├── statemanagement.mdc │ │ ├── stylingstandards.mdc │ │ ├── testingrequirements.mdc ├── src/ │ ├── app/ │ │ ├── jd-generator/ # JD Generator UI │ │ ├── ai-cv-generator/ # AI CV Generator UI │ │ ├── job-board/ # AI Job Board │ │ ├── hiring-insights/ # AI Hiring Trends Dashboard │ │ ├── gumloop-automation/ # Gumloop-based workflows │ ├── backend-node/ # Node.js APIs │ │ ├── routes/ │ │ ├── controllers/ │ │ ├── utils/ │ ├── backend-python/ # Python AI processing │ │ ├── main.py # FastAPI entry point │ │ ├── requirements.txt │ │ ├── services/ │ │ │ ├── cv_parser.py │ │ │ ├── job_spec_analyzer.py │ │ │ ├── course_recommender.py │ ├── integrations/ │ │ ├── gumloop/ # Gumloop API integration │ │ │ ├── job_posting.py │ │ │ ├── candidate_screening.py │ │ │ ├── lead_generation.py │ ├── components/ │ │ ├── features/ │ │ │ ├── jd-generator/ │ │ │ ├── ai-cv-generator/ │ │ │ ├── job-board/ │ │ │ ├── hiring-insights/ │ │ │ ├── gumloop-automation/ │ ├── lib/ │ │ ├── supabase/ │ ├── pages/ │ ├── public/ │ ├── styles/ │ ├── types/
+
+
+---
+
+## **🔹 Code Best Practices**
+- **Maintain Types for All Implementations**  
+  - TypeScript must be enforced throughout the project.  
+- **Shared Utilities Live in `/lib/`**  
+  - Centralized helper functions (Supabase storage, GPT integrations, Gumloop API calls).  
+- **Follow Atomic Design Principles**  
+  - Keep UI components small, reusable, and organized.  
+- **Use Feature-Based Structure**  
+  - Organize code into independent, reusable feature modules.  
+- **Separate AI-heavy processing into Python (`backend-python/`)**  
+  - Optimize for performance by keeping AI-heavy processes separate from the frontend and Node.js APIs.
+- **Use Gumloop for no-code workflow automation**  
+  - Handle job postings, AI chatbots, and talent matching workflows via Gumloop.
+
+---
+
+

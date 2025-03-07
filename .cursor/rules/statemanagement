@@ -1,0 +1,56 @@
+# UI/UX & Styling Standards
+
+## **🔹 Core UI Principles**
+- **Use Tailwind Utility Classes ONLY** (No custom CSS).  
+- **Maintain a clean, dark-themed enterprise aesthetic**.  
+- **All UI components must use `shadcn@latest` for styling consistency**.  
+- **Ensure accessibility compliance (ARIA labels, focus states, color contrast).**  
+
+---
+
+## **🔹 SaaS-Level UI & Interaction Standards**
+- **Micro-animations & hover effects must be implemented**:
+  - Button hover effects.
+  - Interactive tooltips.
+  - Animated loading states.
+- **UI must have a high-end, polished feel**:
+  - Smooth transitions.
+  - High-contrast CTA buttons.
+  - Gradient backgrounds.
+  - Floating action buttons.
+  - Card scaling effects.
+  - Status indicators with clear visibility.  
+- **Navigation must be visually engaging**:
+  - Sticky, minimalistic navbar.
+  - Clear section dividers with smooth scrolling.
+  - Hoverable dropdowns with interactive transitions.
+
+---
+
+## **🔹 Component Styling Rules**
+- **Buttons**:
+  - Use `shadcn/ui` button components with **consistent primary & secondary styling**.
+  - Ensure high contrast between text & background.
+  - Must include hover & focus states with micro-interactions.
+- **Modals & Dialogs**:
+  - Use `shadcn/ui` dialog component for all pop-ups.
+  - Should include subtle fade-in/out animations.
+- **Forms & Inputs**:
+  - Use `shadcn/ui` input fields, checkboxes, and dropdowns.
+  - Inputs must have clear focus states and auto-validation.
+- **Cards & Panels**:
+  - Use **shadcn’s Card component** with subtle elevation effects.
+  - Ensure **responsive grid-based layout for dashboards & listings**.
+
+---
+
+## **🔹 Responsive & Mobile Standards**
+- **All pages must be fully responsive & mobile-optimized**.
+- **Ensure fluid layout scaling** (grid-based for job boards, AI dashboards).
+- **Touch-friendly interactions for mobile navigation & buttons.**
+
+---
+
+## **🔹 Future Enhancements**
+- **Consider adding Dark Mode toggle support**.
+- **Introduce subtle AI-powered animations for engagement.**

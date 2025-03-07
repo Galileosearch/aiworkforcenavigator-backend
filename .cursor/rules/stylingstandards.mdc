@@ -1,0 +1,116 @@
+---
+description: UI/UX Styling Standard
+globs: 
+---
+# UI/UX & Styling Standards
+
+## **🔹 Core UI Principles**
+- **Use Tailwind Utility Classes ONLY** (No custom CSS).  
+- **Maintain a clean, dark-themed enterprise aesthetic.**  
+- **All UI components must use `shadcn@latest` for styling consistency.**  
+- **Ensure accessibility compliance (ARIA labels, focus states, color contrast).**  
+- **Ensure Gumloop automation workflows align with UI consistency.**  
+- **AI-generated CV layouts must follow ATS-friendly structure while being visually engaging.**  
+
+---
+
+## **🔹 SaaS-Level UI & Interaction Standards**
+- **Micro-animations & hover effects must be implemented**:
+  - Button hover effects.
+  - Interactive tooltips.
+  - Animated loading states.
+- **UI must have a high-end, polished feel**:
+  - Smooth transitions.
+  - High-contrast CTA buttons.
+  - Gradient backgrounds.
+  - Floating action buttons.
+  - Card scaling effects.
+  - Status indicators with clear visibility.  
+- **Navigation must be visually engaging**:
+  - Sticky, minimalistic navbar.
+  - Clear section dividers with smooth scrolling.
+  - Hoverable dropdowns with interactive transitions.
+  - Workflow automation states should be visually distinguishable.
+
+---
+
+## **🔹 Component Styling Rules**
+- **Buttons**:
+  - Use `shadcn/ui` button components with **consistent primary & secondary styling**.
+  - Ensure high contrast between text & background.
+  - Must include hover & focus states with micro-interactions.
+- **Modals & Dialogs**:
+  - Use `shadcn/ui` dialog component for all pop-ups.
+  - Should include subtle fade-in/out animations.
+- **Forms & Inputs**:
+  - Use `shadcn/ui` input fields, checkboxes, and dropdowns.
+  - Inputs must have clear focus states and auto-validation.
+- **Cards & Panels**:
+  - Use **shadcn’s Card component** with subtle elevation effects.
+  - Ensure **responsive grid-based layout for dashboards & listings**.
+- **Gumloop Workflow UI:**
+  - Automation workflows should have **status indicators** (pending, in progress, completed).
+  - **Real-time UI updates** (e.g., when a job is auto-posted via Gumloop).
+  - Users should see **progress bars for automated tasks**.
+
+---
+
+## **🔹 AI CV Styling & PDF/DOCX Templates (Enhanced)**
+- **All AI-generated CVs must use structured, ATS-friendly templates.**
+- **Ensure modern, high-quality CV layouts for professional presentation.**
+- **Implement dynamic PDF styling for consistent formatting across CVs.**
+- **Ensure AI-generated CVs work across Web, DOCX, and PDF formats.**
+- **Support branded CVs for premium users.**
+
+### **CV Template Guidelines**
+✅ **Header Formatting:**
+  - Candidate’s name in **bold, large font (20-24px).**
+  - Contact details in **smaller, clear font** (LinkedIn, address, phone, Email).  
+  - Professional introduction, **brief summary of candidate skills & experience**.
+
+✅ **Section Styling:**
+  - **Experience Section:** 
+    - **Company Name & Job Title Bolded.**
+    - **Timeline in a subtle gray font** for readability.  
+  - **Skills Section:**  
+    - **Use two-column layout for readability.**  
+    - **Highlight AI-specific skills** (e.g., Python, NLP, MLOps).  
+  - **Certifications & Training:**  
+    - **Include AI course recommendations** with styling for easy reading.  
+  - **AI Career Transition (For displaced workers moving to AI jobs):**  
+    - Clearly list **new AI job recommendations** based on candidate history.
+    - Use **icons & graphical elements** to visually represent skill matches.  
+    - Include **salary comparison insights** (current vs. AI career).
+
+✅ **Font & Typography Standards:**
+  - Use **"Inter" or "Lato"** for a clean, professional look.  
+  - Avoid excessive bolding (stick to **section headers & key details**).  
+  - Line spacing: **1.2x for readability**.  
+
+✅ **PDF & DOCX Export Standards:**
+  - Use `pdf-lib` or `react-pdf` for **high-quality document export.**  
+  - Ensure **consistent margin & spacing** across all templates.  
+  - Embed **download button** for users to instantly retrieve their AI-optimized CV.  
+  - Ensure **CVs export correctly in Word format (DOCX) for recruiter compatibility.**  
+  - Ensure **file names include user name & job title** (e.g., `John_Smith_Software_Engineer_CV.pdf`).  
+
+---
+
+## **🔹 Responsive & Mobile Standards**
+- **All pages must be fully responsive & mobile-optimized.**
+- **Ensure fluid layout scaling** (grid-based for job boards, AI dashboards).
+- **Touch-friendly interactions for mobile navigation & buttons.**
+- **CV Templates must maintain structure across Web, Word & PDF formats.**
+- **Ensure Gumloop-based automation flows update UI in real-time on mobile.**
+
+---
+
+## **🔹 Future Enhancements**
+- **Consider adding Dark Mode toggle support.**
+- **Introduce subtle AI-powered animations for engagement.**
+- **Add multiple CV template designs for user customization.**
+- **Allow branded CV templates for premium users.**
+- **Integrate CV scoring based on AI hiring trends (e.g., AI ranks CV quality vs. market demand).**
+- **Ensure CV personalization is possible (users select preferred template styles).**
+- **Provide live salary comparison for AI Career Transition tool in real-time.**
+- **Optimize AI-generated CV layouts based on recruiter ATS compatibility.**
