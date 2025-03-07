@@ -11,6 +11,8 @@ export default function CompanyProfileFetch({ onCompanyProfileFetched }: Company
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState(false);
+  const [dataSource, setDataSource] = useState<'apify' | 'gpt'>('gpt'); // Default to GPT
+  const [fetchTimes, setFetchTimes] = useState<{apify?: number, gpt?: number}>({});
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -24,13 +26,23 @@ export default function CompanyProfileFetch({ onCompanyProfileFetched }: Company
     setError(null);
     setSuccess(false);
     
+    const startTime = performance.now();
+    
     try {
-      const response = await fetch('/api/linkedin/company', {
+      // Determine which API endpoint to use based on the selected data source
+      const endpoint = dataSource === 'apify' 
+        ? '/api/linkedin/company' 
+        : '/api/company-data/gpt';
+      
+      const response = await fetch(endpoint, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ companyUrl }),
+        body: JSON.stringify({ 
+          companyUrl,
+          companyName: companyUrl // Pass the input as both URL and name for GPT
+        }),
       });
       
       const data = await response.json();
@@ -39,10 +51,27 @@ export default function CompanyProfileFetch({ onCompanyProfileFetched }: Company
         throw new Error(data.error || 'Failed to fetch company data');
       }
       
+      const endTime = performance.now();
+      setFetchTimes(prev => ({
+        ...prev,
+        [dataSource]: endTime - startTime
+      }));
+      
       setSuccess(true);
-      onCompanyProfileFetched(data.company);
+      onCompanyProfileFetched({
+        ...data.company,
+        data_source: dataSource,
+        fetch_time_ms: endTime - startTime
+      });
     } catch (err) {
       setError(err instanceof Error ? err.message : 'An unknown error occurred');
+      
+      // If GPT fails, try Apify as fallback
+      if (dataSource === 'gpt') {
+        setError(`${error} - Trying Apify as fallback...`);
+        setDataSource('apify');
+        handleSubmit(e);
+      }
     } finally {
       setIsLoading(false);
     }
@@ -63,7 +92,8 @@ export default function CompanyProfileFetch({ onCompanyProfileFetched }: Company
       
       {success && (
         <div className="bg-green-50 border border-green-200 text-green-700 px-4 py-3 rounded">
-          Company data fetched successfully
+          Company data fetched successfully using {dataSource.toUpperCase()}
+          {fetchTimes[dataSource] && ` in ${fetchTimes[dataSource].toFixed(0)}ms`}
         </div>
       )}
       
@@ -78,8 +108,36 @@ export default function CompanyProfileFetch({ onCompanyProfileFetched }: Company
             disabled={isLoading}
           />
           <p className="text-xs text-gray-500 mt-1">
-            This will help pre-populate your job description with company information
+            This will help pre-populate your job description with company information. Our AI prioritizes Australian operations for multinational companies.
           </p>
+        </div>
+        
+        <div className="flex items-center space-x-4">
+          <span className="text-sm font-medium">Data Source:</span>
+          <label className="inline-flex items-center">
+            <input
+              type="radio"
+              className="form-radio"
+              name="dataSource"
+              value="gpt"
+              checked={dataSource === 'gpt'}
+              onChange={() => setDataSource('gpt')}
+              disabled={isLoading}
+            />
+            <span className="ml-2">GPT-4.5 (Faster, Australia-focused)</span>
+          </label>
+          <label className="inline-flex items-center">
+            <input
+              type="radio"
+              className="form-radio"
+              name="dataSource"
+              value="apify"
+              checked={dataSource === 'apify'}
+              onChange={() => setDataSource('apify')}
+              disabled={isLoading}
+            />
+            <span className="ml-2">LinkedIn Scraper (More Detailed)</span>
+          </label>
         </div>
         
         <button
